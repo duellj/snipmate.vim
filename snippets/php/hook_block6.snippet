@@ -1,0 +1,36 @@
+
+/**
+ * Implementation of hook_block()
+ */
+function `Filename()`_block($op = 'list', $delta = 0, $edit = array()) {
+	switch ($op) {
+		case 'list':
+			$blocks['${1}'] = array(
+				'info' => t('${2:Admin Title}')
+				'cache' => BLOCK_CACHE_GLOBAL,
+			);
+
+			return $blocks;
+			break;
+
+		case 'configure':
+			break;
+
+		case 'save':
+			break;
+
+		case 'view':
+			$block = array();
+			switch ($delta) {
+				case $1:
+					$block = array(
+						'subject' => t('${3:$2}'),
+						'content' => ${4:/* Block content */}
+					);
+					break;
+			}
+			return $block;
+			break;
+	}
+}
+

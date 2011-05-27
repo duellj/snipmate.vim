@@ -1,1 +1,4 @@
-$result = db_query('${1:/* Query */}', ${2:/* Arguments */});
+$result = db_query('${1:/* Query */}', array(${2:/* Arguments */}));
+foreach ($result as $record) {
+	${3:/* Perform operations */}
+}

@@ -1,14 +1,30 @@
 
 /**
- * Implementation of hook_block()
+ * Implements hook_block_info().
  */
-function `Filename()`_block($op = 'list', $delta = 0, $edit = array()) {
-	switch ($op) {
-		case 'list':
-			${1}
-		case 'configure':
-		case 'save':
-		case 'view':
+function `Filename()`_block_info() {
+	$blocks['${1:delta}'] = array(
+		'info' => t('${2:Admin Title}'),
+		'cache' => DRUPAL_CACHE_GLOBAL,
+	);
+
+	return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function `Filename()`_block_view($delta = '') {
+	$block = array();
+
+	switch ($delta) {
+		case '$1':
+			$block = array(
+				'subject' => t('${3:$2}'),
+				'content' => ${4:/* Block content: theme function or render array */},
+			);
+			break;
 	}
+	return $block;
 }
 
